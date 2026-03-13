@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "mcdonalds": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-streamable-http@latest"],
+      "env": {
+        "MCP_SERVER_URL": "https://mcp.mcd.cn",
+        "MCP_AUTH_TOKEN": "YOUR_MCP_TOKEN"
+      }
+    }
+  }
+}
