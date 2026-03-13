@@ -1,312 +1,312 @@
-# 🍟 麦当劳 MCP 使用示例
+# 🍟 McDonald's MCP Usage Examples
 
-本文档展示如何在不同场景下使用麦当劳 MCP Server。
+This document demonstrates how to use the McDonald's MCP Server in different scenarios.
 
-## 📍 场景一：查询活动和优惠
+## 📍 Scenario 1: Check Activities and Offers
 
-### 查看今日活动
+### View Today's Activities
 ```
-用户：今天麦当劳有什么活动？
+User: What activities does McDonald's have today?
 
-AI：我来帮您查询一下麦当劳今天的活动日历。
+AI: Let me check McDonald's activity calendar for today.
 
-[调用 campaign-calendar 工具]
+[Call campaign-calendar tool]
 
-今天（12月9日）麦当劳有以下活动：
+Today (December 9th), McDonald's has the following activities:
 
-⏳ **倒计时！超人气「芝芝火腿扒堡」即将回归！**
-🍔 松软芝芝火腿扒堡搭配鲜萃咖啡
-💥 一堡+一咖啡！还是天天￥9.9！
-☀ 一口下去给元气满满的早晨充能！
-⏰ 12月15日起，超值低价闭眼冲！
+⏳ **Countdown! The super popular "Cheesy Ham McMuffin" is coming back!**
+🍔 Soft Cheesy Ham McMuffin paired with fresh coffee
+💥 A burger + a coffee! Still just ¥9.9 every day!
+☀ One bite gives you a full charge of energy for the morning!
+⏰ Starting December 15th, grab this great deal!
 ```
 
-### 查看可领的优惠券
+### View Available Coupons
 ```
-用户：有什么优惠券可以领？
+User: What coupons can I collect?
 
-AI：我来帮您查询一下当前可领取的优惠券。
+AI: Let me check what coupons are currently available for collection.
 
-[调用 available-coupons 工具]
+[Call available-coupons tool]
 
-### 麦麦省优惠券列表：
+### McDonald's Coupon List:
 
-1. **11.9元麦乐鸡**
-   - 状态：已领取
+1. **¥11.9 Chicken McNuggets**
+   - Status: Already collected
    
-2. **9.9元薯你最甜** ⭐
-   - 状态：未领取
+2. **¥9.9 Sweet Potato Deal** ⭐
+   - Status: Not collected
    
-3. **北非蛋风味麦满分**
-   - 状态：不可领取
+3. **North African Egg McMuffin**
+   - Status: Not available for collection
 ```
 
-### 一键领券
+### One-Click Coupon Collection
 ```
-用户：帮我领一下所有能领的券
+User: Collect all available coupons for me
 
-AI：好的，我来帮您自动领取所有可用的优惠券。
+AI: Okay, I'll automatically collect all available coupons for you.
 
-[调用 auto-bind-coupons 工具]
+[Call auto-bind-coupons tool]
 
-### 🎉 领券结果
-**总计**: 1 张优惠券
-**成功**: 1 张
-**失败**: 0 张
+### 🎉 Collection Results
+**Total**: 1 coupon
+**Success**: 1
+**Failed**: 0
 
 ---
-#### ✅ 成功领取的优惠券：
-- **9.9元薯你最甜**
-- couponId：8ED8D8BEBEBDEF26B615682E92EFAC86
-- couponCode：MCDD60T892ST5EV00N1090
-```
-
----
-
-## 💰 场景二：积分查询和兑换
-
-### 查询积分余额
-```
-用户：我有多少积分？
-
-AI：我来帮您查询一下积分账户信息。
-
-[调用 query-my-account 工具]
-
-# 您的积分账户
-
-| 项目 | 数值 |
-|------|------|
-| **可用积分** | 7,592 |
-| 累计积分 | 141,760.94 |
-| 冻结积分 | 30 |
-| 本月过期 | 0 |
-| 下月过期 | 0 |
-| 已使用积分 | 115,474.14 |
-```
-
-### 查看积分兑换商品
-```
-用户：积分能换什么？
-
-AI：我来帮您查询可以用积分兑换的商品。
-
-[调用 mall-points-products 工具]
-
-可用积分兑换的商品：
-
-1. **中杯拿铁/美式** - 500积分
-   - 有效期至：2026-04-30
-   
-2. **麦辣鸡翅（2块）** - 800积分
-   - 有效期至：2026-04-30
-   
-3. **巨无霸** - 1200积分
-   - 有效期至：2026-04-30
-```
-
-### 积分兑换
-```
-用户：用积分兑换一杯咖啡
-
-AI：好的，我来帮您用 500 积分兑换中杯拿铁/美式。
-
-[调用 mall-create-order 工具，skuId=10997, count=1]
-
-### ✅ 兑换成功！
-
-**订单号**: ECS1202144786604392448
-**兑换商品**: 中杯拿铁/美式
-**使用积分**: 500
-
-**券码**: MCDD6E08N9100KC050F087
-
-请在有效期内使用，到店出示券码即可兑换。
+#### ✅ Successfully collected coupons:
+- **¥9.9 Sweet Potato Deal**
+- couponId: 8ED8D8BEBEBDEF26B615682E92EFAC86
+- couponCode: MCDD60T892ST5EV00N1090
 ```
 
 ---
 
-## 🍔 场景三：外送点餐
+## 💰 Scenario 2: Points Query and Redemption
 
-### 查看配送地址
+### Check Points Balance
 ```
-用户：我要点外卖
+User: How many points do I have?
 
-AI：好的，我先查看一下您的配送地址。
+AI: Let me check your points account information.
 
-[调用 delivery-query-addresses 工具]
+[Call query-my-account tool]
 
-您有以下配送地址：
+# Your Points Account
 
-1. **张三** 152****6666
-   📍 xx省xx市xxx小区 x栋x单元xxx室
-   🏪 配送门店：xxx门店
+| Item | Value |
+|------|-------|
+| **Available Points** | 7,592 |
+| Total Points | 141,760.94 |
+| Frozen Points | 30 |
+| Expiring This Month | 0 |
+| Expiring Next Month | 0 |
+| Points Used | 115,474.14 |
+```
+
+### View Points Redemption Products
+```
+User: What can I redeem with my points?
+
+AI: Let me check what products you can redeem with your points.
+
+[Call mall-points-products tool]
+
+Available points redemption products:
+
+1. **Medium Latte/Americano** - 500 points
+   - Valid until: 2026-04-30
    
-请选择或新增配送地址？
+2. **Spicy Chicken Wings (2pcs)** - 800 points
+   - Valid until: 2026-04-30
+   
+3. **Big Mac** - 1200 points
+   - Valid until: 2026-04-30
 ```
 
-### 查询门店菜单
+### Points Redemption
 ```
-用户：看看有什么好吃的
+User: Redeem a coffee with points
 
-AI：我来帮您查询当前门店的菜单。
+AI: Okay, I'll help you redeem a Medium Latte/Americano for 500 points.
 
-[调用 query-meals 工具，storeCode=12345, beCode=12345]
+[Call mall-create-order tool, skuId=10997, count=1]
 
-### 🍔 人气热卖
+### ✅ Redemption Successful!
 
-| 餐品 | 价格 | 标签 |
-|------|------|------|
-| 培根安格斯厚牛堡大套餐 | ¥55.5 | 第二份半价 |
-| DC套餐测试 | ¥14 | |
-| 双层深海鳕鱼堡 | ¥25 | |
+**Order ID**: ECS1202144786604392448
+**Redeemed Product**: Medium Latte/Americano
+**Points Used**: 500
 
-### 🍟 小食
+**Voucher Code**: MCDD6E08N9100KC050F087
+
+Please use it within the validity period. Show the voucher code at the store to redeem.
+```
+
+---
+
+## 🍔 Scenario 3: Delivery Ordering
+
+### View Delivery Addresses
+```
+User: I want to order delivery
+
+AI: Okay, let me check your delivery addresses first.
+
+[Call delivery-query-addresses tool]
+
+You have the following delivery addresses:
+
+1. **Zhang San** 152****6666
+   📍 xx Province xx City xxx Community Building x Unit xxx Room
+   🏪 Delivery Store: xxx Store
+   
+Please select or add a new delivery address?
+```
+
+### Query Store Menu
+```
+User: What's good on the menu?
+
+AI: Let me check the current store's menu for you.
+
+[Call query-meals tool, storeCode=12345, beCode=12345]
+
+### 🍔 Popular Bestsellers
+
+| Meal | Price | Tag |
+|------|-------|-----|
+| Bacon Angus Thick Beef Burger Meal | ¥55.5 | Second item 50% off |
+| DC Combo Test | ¥14 | |
+| Double Filet-O-Fish | ¥25 | |
+
+### 🍟 Sides
 ...
 
-### 🥤 饮料
+### 🥤 Drinks
 ...
 ```
 
-### 查看餐品详情
+### View Meal Details
 ```
-用户：DC套餐里有什么？
+User: What's in the DC combo meal?
 
-AI：我来帮您查看这个套餐的详情。
+AI: Let me check the details of this combo meal for you.
 
-[调用 query-meal-detail 工具，code=9900008139]
+[Call query-meal-detail tool, code=9900008139]
 
-### DC套餐测试 - ¥14
+### DC Combo Test - ¥14
 
-**套餐组成：**
+**Combo Contents:**
 
-1. **汉堡包** x 1
-   - 默认：汉堡包-pool1
+1. **Hamburger** x 1
+   - Default: Hamburger-pool1
    
-**价格**: ¥14
+**Price**: ¥14
 ```
 
-### 计算价格
+### Calculate Price
 ```
-用户：一个巨无霸套餐加可乐多少钱？
+User: How much for a Big Mac meal plus Coke?
 
-AI：我来帮您计算一下价格。
+AI: Let me calculate the price for you.
 
-[调用 calculate-price 工具]
+[Call calculate-price tool]
 
-### 💰 价格明细
+### 💰 Price Details
 
-| 项目 | 金额 |
-|------|------|
-| 商品原价 | ¥16.00 |
-| 商品现价 | ¥16.00 |
-| 配送费原价 | ¥6.00 |
-| 配送费现价 | ¥6.00 |
-| **原价总计** | **¥22.00** |
-| 优惠金额 | ¥0.00 |
-| **应付总价** | **¥22.00** |
-```
-
-### 创建订单
-```
-用户：下单
-
-AI：好的，我来为您创建订单。
-
-[调用 create-order 工具]
-
-### ✅ 订单创建成功！
-
-**订单号**: 1030938730000733964700499858
-**订单状态**: 待支付
-
-**门店**: xxx门店
-**地址**: xxxx小区-xx栋 xxx号房间
-**联系人**: 张三 152****6666
-
-**商品清单**:
-- DC套餐测试 x 1 - ¥16
-  - 汉堡包-pool1 加一份奶油(加)
-
-| 费用明细 | 金额 |
-|----------|------|
-| 商品金额 | ¥16 |
-| 配送费 | ¥6 |
-| **合计** | **¥22** |
-
-**⏰ 支付链接**: [点击支付](https://m.mcd.cn/mcp/scanToPay?orderId=1030779030000000000000000)
-
-请在 15 分钟内完成支付。
+| Item | Amount |
+|------|--------|
+| Original Product Price | ¥16.00 |
+| Current Product Price | ¥16.00 |
+| Original Delivery Fee | ¥6.00 |
+| Current Delivery Fee | ¥6.00 |
+| **Total Original Price** | **¥22.00** |
+| Discount Amount | ¥0.00 |
+| **Total Payable** | **¥22.00** |
 ```
 
-### 查询订单状态
+### Create Order
 ```
-用户：我的订单怎么样了？
+User: Place order
 
-AI：我来帮您查询订单详情。
+AI: Okay, I'll create the order for you.
 
-[调用 query-order 工具，orderId=1030938730000733964700499858]
+[Call create-order tool]
 
-### 📋 订单详情
+### ✅ Order Created Successfully!
 
-**订单号**: 1030938730000733964700499858
-**状态**: 🟡 待支付
-**创建时间**: 2026-02-09 14:42:51
+**Order ID**: 1030938730000733964700499858
+**Order Status**: Pending Payment
 
-**配送信息**:
-- 配送方式：立即送出
-- 配送地址：xxxx小区-xx栋 xxx号房间
-- 联系人：张三 152****6666
+**Store**: xxx Store
+**Address**: xxxx Community-Building xx Room xxx
+**Contact**: Zhang San 152****6666
 
-**商品**: DC套餐测试 x 1 - ¥16
-**总计**: ¥22（含配送费¥6）
+**Item List**:
+- DC Combo Test x 1 - ¥16
+  - Hamburger-pool1 with extra cream (add)
+
+| Fee Details | Amount |
+|-------------|--------|
+| Product Amount | ¥16 |
+| Delivery Fee | ¥6 |
+| **Total** | **¥22** |
+
+**⏰ Payment Link**: [Click to Pay](https://m.mcd.cn/mcp/scanToPay?orderId=1030779030000000000000000)
+
+Please complete payment within 15 minutes.
 ```
 
----
-
-## 🥗 场景四：营养信息查询
-
+### Check Order Status
 ```
-用户：巨无霸有多少热量？
+User: How is my order doing?
 
-AI：我来帮您查询巨无霸的营养信息。
+AI: Let me check the order details for you.
 
-[调用 list-nutrition-foods 工具]
+[Call query-order tool, orderId=1030938730000733964700499858]
 
-### 🍔 巨无霸营养信息
+### 📋 Order Details
 
-| 营养成分 | 含量 |
-|----------|------|
-| 能量 | 2153 kJ / 514 kcal |
-| 蛋白质 | 26 g |
-| 脂肪 | 26 g |
-| 碳水化合物 | 44 g |
-| 钠 | 889 mg |
-| 钙 | 123 mg |
+**Order ID**: 1030938730000733964700499858
+**Status**: 🟡 Pending Payment
+**Created At**: 2026-02-09 14:42:51
 
-**建议**: 巨无霸属于高热量餐品，约占成年人每日推荐摄入热量的 25%。
+**Delivery Info**:
+- Delivery Method: Immediate delivery
+- Delivery Address: xxxx Community-Building xx Room xxx
+- Contact: Zhang San 152****6666
+
+**Product**: DC Combo Test x 1 - ¥16
+**Total**: ¥22 (includes delivery fee ¥6)
 ```
 
 ---
 
-## 📝 常用对话模板
+## 🥗 Scenario 4: Nutrition Information Query
 
-| 需求 | 对话示例 |
-|------|----------|
-| 查活动 | "今天麦当劳有什么活动？" / "最近有什么优惠？" |
-| 领券 | "帮我领券" / "自动领取优惠券" / "一键领券" |
-| 查券 | "我有哪些优惠券？" / "我有什么券可以用？" |
-| 查积分 | "我有多少积分？" / "查一下我的积分" |
-| 积分兑换 | "积分能换什么？" / "用积分兑换咖啡" |
-| 点餐 | "帮我点一个巨无霸套餐" / "我要点外卖" |
-| 查营养 | "巨无霸的热量是多少？" / "查询营养信息" |
-| 查订单 | "我的订单怎么样了？" / "查看订单状态" |
+```
+User: How many calories in a Big Mac?
+
+AI: Let me check the nutrition information for the Big Mac.
+
+[Call list-nutrition-foods tool]
+
+### 🍔 Big Mac Nutrition Information
+
+| Nutrient | Amount |
+|----------|--------|
+| Energy | 2153 kJ / 514 kcal |
+| Protein | 26 g |
+| Fat | 26 g |
+| Carbohydrates | 44 g |
+| Sodium | 889 mg |
+| Calcium | 123 mg |
+
+**Note**: The Big Mac is a high-calorie meal, accounting for about 25% of the recommended daily calorie intake for adults.
+```
 
 ---
 
-## ⚠️ 注意事项
+## 📝 Common Conversation Templates
 
-1. **首次使用**：需要先配置配送地址才能点餐
-2. **支付方式**：创建订单后会返回支付链接，需手动完成支付
-3. **券使用**：下单时可以指定使用优惠券
-4. **时效性**：订单创建后需在 15 分钟内支付
+| Need | Conversation Example |
+|------|---------------------|
+| Check activities | "What activities does McDonald's have today?" / "Any recent promotions?" |
+| Collect coupons | "Collect coupons for me" / "Auto-collect coupons" / "One-click collect" |
+| Check coupons | "What coupons do I have?" / "What coupons can I use?" |
+| Check points | "How many points do I have?" / "Check my points" |
+| Points redemption | "What can I redeem with points?" / "Redeem a coffee with points" |
+| Order meal | "Order a Big Mac meal for me" / "I want to order delivery" |
+| Check nutrition | "How many calories in a Big Mac?" / "Check nutrition info" |
+| Check order | "How is my order doing?" / "Check order status" |
+
+---
+
+## ⚠️ Notes
+
+1. **First Use**: You need to configure a delivery address before ordering
+2. **Payment Method**: After creating an order, a payment link will be returned; payment must be completed manually
+3. **Coupon Usage**: You can specify coupon usage when placing an order
+4. **Time Limit**: Orders must be paid within 15 minutes of creation
